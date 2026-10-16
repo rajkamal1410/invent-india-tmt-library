@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Invent India TMT Library</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <div class="page-shell editorial-shell">
+    <header class="topbar site-nav">
+      <a class="brand-mark" href="index.html" aria-label="Invent India TMT Library home">
+        <span class="brand-dot"></span>
+        <span>INVENT INDIA<br><em>TMT LIBRARY</em></span>
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#library">Library</a>
+        <a href="#areas">Themes</a>
+      </nav>
+      <div class="topbar-badge">Invent India TMT Library <span aria-hidden="true">↗</span></div>
+    </header>
+
+    <main class="hub">
+      <section class="hero-panel">
+        <div class="hero-kicker"><span>01</span> Ideas that move business forward</div>
+        <h1>Invent India TMT<br><span>Library.</span></h1>
+        <div class="hero-bottom">
+          <p class="lead">An AI-inspired Invent India TMT library for faster research, sharper synthesis, and better decision support—bringing together RFPs, POVs, executive briefings, data monetization plays, and transformation narratives in one intelligent workspace.</p>
+          <div class="hero-metrics">
+            <div class="metric-box"><span class="metric-value" id="totalDocs">0</span><span class="metric-label">curated documents</span></div>
+            <div class="metric-box"><span class="metric-value" id="totalCategories">0</span><span class="metric-label">strategic themes</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="workspace-section" id="knowledge-tools">
+        <div class="section-intro"><span class="section-number">02</span><div><p class="section-label">Knowledge workspace</p><h2>Move from finding to making.</h2></div></div>
+        <div class="tool-tabs" role="tablist" aria-label="Knowledge workspace tools">
+          <button class="tool-tab is-active" data-tool="slides" role="tab" aria-selected="true">Slide Finder</button>
+          <button class="tool-tab" data-tool="docs" role="tab" aria-selected="false">Doc Finder</button>
+          <button class="tool-tab" data-tool="upload" role="tab" aria-selected="false">Upload Docs</button>
+        </div>
+
+        <div class="tool-panels">
+          <section class="tool-panel is-active" data-panel="slides" role="tabpanel">
+            <div class="tool-copy"><span class="section-label">Search presentation intelligence</span><h3>Find the right slide faster.</h3><p>Browse the library like a research partner—surface relevant themes, analogues, and strategic signals from the TMT knowledge base.</p></div>
+            <div class="tool-form inline-form"><input id="slideSearchInput" type="search" placeholder="Try: AI, data monetization, architecture, strategy, analogue research" /><button class="primary-btn" id="slideSearchBtn" type="button">Find slides</button></div>
+            <div id="slideResults" class="tool-results"></div>
+          </section>
+
+          <section class="tool-panel" data-panel="docs" role="tabpanel" hidden>
+            <div class="tool-copy"><span class="section-label">Document intelligence</span><h3>Research. Compare. Synthesize.</h3><p>Search across the library to identify the most relevant documents, compare patterns, and build a sharper analytical narrative.</p></div>
+            <div class="tool-form inline-form"><input id="docFinderInput" type="search" placeholder="Search public themes, AI, data, networks, or strategy" /><button class="primary-btn" id="docFinderBtn" type="button">Find documents</button></div>
+            <div id="docFinderResults" class="tool-results"></div>
+          </section>
+
+          <section class="tool-panel" data-panel="upload" role="tabpanel" hidden>
+            <div class="tool-copy"><span class="section-label">Upload docs</span><h3>Feed fresh evidence into the research loop.</h3><p>Add new files and turn them into working references for faster synthesis, comparison, and insight-building.</p></div>
+            <div class="upload-drop"><strong>Choose files</strong><span>PDF, PPTX, PPT, DOCX, XLSX, or TXT</span><button class="primary-btn upload-browse-btn" id="uploadBrowseBtn" type="button">Browse files</button><label class="upload-input-label" for="uploadInput">Or choose directly<input id="uploadInput" type="file" multiple accept=".pdf,.pptx,.ppt,.docx,.xlsx,.txt" /></label></div>
+            <div id="uploadStatus" class="upload-status" role="status" aria-live="polite"></div>
+            <div id="uploadList" class="project-list"></div>
+          </section>
+        </div>
+      </section>
+
+      <section class="search-panel" id="library">
+        <div class="section-intro"><span class="section-number">03</span><div><p class="section-label">The library</p><h2>Search the signal.</h2></div></div>
+        <div class="search-row">
+          <label class="search-box" for="searchInput">
+            <span>Search library</span>
+            <input id="searchInput" type="search" placeholder="Search by keyword: AI, data, networks, digital transformation, strategy..." />
+          </label>
+          <button class="primary-btn search-btn" id="searchBtn" type="button">Search</button>
+          <button class="primary-btn" id="clearBtn" type="button">Clear</button>
+        </div>
+        <div class="library-controls" aria-label="Library controls">
+          <label>Filter by type
+            <select id="typeFilter">
+              <option value="all">All document types</option>
+            </select>
+          </label>
+          <label>Sort results
+            <select id="sortSelect">
+              <option value="relevance">Relevance</option>
+              <option value="title">Title A-Z</option>
+              <option value="category">Category</option>
+            </select>
+          </label>
+          <button class="control-btn" id="favoritesBtn" type="button" aria-pressed="false">Saved only <span id="favoritesCount">0</span></button>
+        </div>
+        <div class="suggested-tags" id="suggestedTags"></div>
+      </section>
+
+      <section class="overview-layout" id="areas">
+        <aside class="side-panel">
+          <div class="section-intro"><span class="section-number">03</span><div><p class="section-label">Explore by theme</p><h2>Where ideas<br>take shape.</h2></div></div>
+          <h3>High-level areas covered</h3>
+          <ul id="areaList" class="area-list"></ul>
+        </aside>
+
+        <div class="results-panel">
+          <div class="results-header">
+            <p class="section-label">Search results</p>
+            <div class="results-tools"><span id="resultCount">0 matches</span><button class="text-btn" id="resetViewBtn" type="button">Reset view</button></div>
+          </div>
+          <div id="resultsContainer" class="results-container"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="modal-backdrop" id="detailModal" hidden>
+    <section class="detail-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="modalClose" type="button" aria-label="Close document details">&times;</button>
+      <span class="section-label" id="modalType">Document details</span>
+      <h2 id="modalTitle"></h2>
+      <p id="modalSummary"></p>
+      <div class="modal-meta" id="modalMeta"></div>
+      <div class="actions-row">
+        <button class="secondary-btn" id="modalOpen" type="button">Open source</button>
+        <button class="link-btn" id="modalPdf" type="button">Download PDF</button>
+        <button class="secondary-btn" id="modalShare" type="button">Copy link</button>
+      </div>
+    </section>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
